@@ -13,7 +13,7 @@
     <main id="section-doc">
         <h1>React</h1>
         <h2>The new way UI's think.</h2>
-        <section class="section-section">
+        <section class="main-section">
             <h3>Hello World</h3>
             <p>This is the industry standard example for trying out a new programming language or framework in all it's
                 simplicity.
@@ -31,7 +31,7 @@
 
 
         </section>
-        <section class="section-section">
+        <section class="main-section">
             <h3>Introducing JSX</h3>
             <p>Consider the variable declaration below:</p>
             <pre>
@@ -104,7 +104,9 @@
                         const element = <h1>{title}</h1>;
             </code>
         </pre>
-        <p>By default, React DOM escapes any values embedded in JSX before rendering them. Thus it ensures that you can never inject anything that’s not explicitly written in your application. Everything is converted to a string before being rendered. This helps prevent XSS (cross-site-scripting) attacks</p>
+            <p>By default, React DOM escapes any values embedded in JSX before rendering them. Thus it ensures that you
+                can never inject anything that’s not explicitly written in your application. Everything is converted to
+                a string before being rendered. This helps prevent XSS (cross-site-scripting) attacks</p>
 
             <h4>JSX Represents Objects</h4>
             <p>Babel compiles JSX down to React.createElement() calls.</p>
@@ -142,24 +144,29 @@
                     };
             </code>
         </pre>
-        <p>These objects are called “React elements”. You can think of them as descriptions of what you want to see on the screen. React reads these objects and uses them to construct the DOM and keep it up to date.
+            <p>These objects are called “React elements”. You can think of them as descriptions of what you want to see
+                on the screen. React reads these objects and uses them to construct the DOM and keep it up to date.
 
             </p>
         </section>
 
-        <section class="section-section">
+        <section class="main-section">
             <h3>Rendering Elements</h3>
             <p>Elements are the smallest building blocks of React apps.</p>
             <p>An element describes what you want to see on the screen:</p>
             <code>const element = <h1>Hello, world</h1>;</code>
-            <p>Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes care of updating the DOM to match the React elements.
-                </p>
+            <p>Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes
+                care of updating the DOM to match the React elements.
+            </p>
             <h4>Rendering an Element into the DOM</h4>
             <p>Let’s say there is a <div> somewhere in your HTML file:</p>
-            <code><div id="root"></div></code>
+            <code>
+                <div id="root"></div>
+            </code>
             <p>We call this a “root” DOM node because everything inside it will be managed by React DOM.</p>
-            <p>Applications built with just React usually have a single root DOM node. If you are integrating React into an existing app, you may have as many isolated root DOM nodes as you like.
-                </p>
+            <p>Applications built with just React usually have a single root DOM node. If you are integrating React
+                into an existing app, you may have as many isolated root DOM nodes as you like.
+            </p>
             <p>To render a React element into a root DOM node, pass both to</p>
             <p> ReactDOM.render():</p>
             <pre>
@@ -168,12 +175,14 @@
                         ReactDOM.render(element, document.getElementById('root'));
             </code>
         </pre>
-        <p>It displays “Hello, world” on the page.</p>
-        <h4>Updating the Rendered Element</h4>
-        <p>React elements are immutable. Once you create an element, you can’t change its children or attributes. An element is like a single frame in a movie: it represents the UI at a certain point in time.</p>
-        <p>With our knowledge so far, the only way to update the UI is to create a new element, and pass it to ReactDOM.render().</p>
-        <p>Consider this ticking clock example:</p>
-        <pre>
+            <p>It displays “Hello, world” on the page.</p>
+            <h4>Updating the Rendered Element</h4>
+            <p>React elements are immutable. Once you create an element, you can’t change its children or attributes.
+                An element is like a single frame in a movie: it represents the UI at a certain point in time.</p>
+            <p>With our knowledge so far, the only way to update the UI is to create a new element, and pass it to
+                ReactDOM.render().</p>
+            <p>Consider this ticking clock example:</p>
+            <pre>
             <code>
                     function tick() {
                         const element = (
@@ -188,15 +197,19 @@
                       setInterval(tick, 1000);
         </code>
     </pre>
-    <p>It calls ReactDOM.render() every second from a setInterval() callback.</p>
-    <h4>React Only Updates What’s Necessary</h4>
-    <p>React DOM compares the element and its children to the previous one, and only applies the DOM updates necessary to bring the DOM to the desired state.</p>       
-</section>
+            <p>It calls ReactDOM.render() every second from a setInterval() callback.</p>
+            <h4>React Only Updates What’s Necessary</h4>
+            <p>React DOM compares the element and its children to the previous one, and only applies the DOM updates
+                necessary to bring the DOM to the desired state.</p>
+        </section>
 
-        <section class="section-section">
+        <section class="main-section">
             <h3>Components and Props</h3>
-            <p>Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a detailed component API reference here.</p>
-            <p>Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen.</p>
+            <p>Components let you split the UI into independent, reusable pieces, and think about each piece in
+                isolation. This page provides an introduction to the idea of components. You can find a detailed
+                component API reference here.</p>
+            <p>Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called “props”)
+                and return React elements describing what should appear on the screen.</p>
             <h4>Function and Class Components </h4>
             <p>The simplest way to define a component is to write a JavaScript function:</p>
             <pre>
@@ -206,9 +219,11 @@
                           }
             </code>
         </pre>
-        <p>This function is a valid React component because it accepts a single “props” (which stands for properties) object argument with data and returns a React element. We call such components “function components” because they are literally JavaScript functions.</p>
-        <p>You can also use an ES6 class to define a component:</p>
-        <pre>
+            <p>This function is a valid React component because it accepts a single “props” (which stands for
+                properties) object argument with data and returns a React element. We call such components “function
+                components” because they are literally JavaScript functions.</p>
+            <p>You can also use an ES6 class to define a component:</p>
+            <pre>
             <code>
                     class Welcome extends React.Component {
                         render() {
@@ -217,16 +232,20 @@
                       }
         </code>
     </pre>
-    <p>The above two components are equivalent from React’s point of view.</p>
-    <p>Classes have some additional features that we will discuss in the next sections. Until then, we will use function components for their conciseness.</p>
-    <h4>Rendering a Component </h4>
-    <p>Previously, we only encountered React elements that represent DOM tags:</p>
-    <code>const element = <div />;</code>
-    <p>However, elements can also represent user-defined components</p>
-    <code>const element = <Welcome name="Sara" />;</code>
-    <p>When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object “props”.</p>
-    <p>For example, this code renders “Hello, Sara” on the page:</p>
-    <pre>
+            <p>The above two components are equivalent from React’s point of view.</p>
+            <p>Classes have some additional features that we will discuss in the next sections. Until then, we will use
+                function components for their conciseness.</p>
+            <h4>Rendering a Component </h4>
+            <p>Previously, we only encountered React elements that represent DOM tags:</p>
+            <code>const element =
+                <div />;</code>
+            <p>However, elements can also represent user-defined components</p>
+            <code>const element =
+                <Welcome name="Sara" />;</code>
+            <p>When React sees an element representing a user-defined component, it passes JSX attributes to this
+                component as a single object. We call this object “props”.</p>
+            <p>For example, this code renders “Hello, Sara” on the page:</p>
+            <pre>
         <code>
                 function Welcome(props) {
                     return <h1>Hello, {props.name}</h1>;
@@ -239,10 +258,12 @@
                   );
     </code>
 </pre>
-<h4>Composing Components</h4>
-<p>Components can refer to other components in their output. This lets us use the same component abstraction for any level of detail. A button, a form, a dialog, a screen: in React apps, all those are commonly expressed as components.</p>
-<p>For example, we can create an App component that renders Welcome many times:</p>
-<pre>
+            <h4>Composing Components</h4>
+            <p>Components can refer to other components in their output. This lets us use the same component
+                abstraction for any level of detail. A button, a form, a dialog, a screen: in React apps, all those are
+                commonly expressed as components.</p>
+            <p>For example, we can create an App component that renders Welcome many times:</p>
+            <pre>
     <code>
             function Welcome(props) {
                 return <h1>Hello, {props.name}</h1>;
@@ -264,10 +285,10 @@
               );
 </code>
 </pre>
-<h4>Extracting Components </h4>
-<p>Don’t be afraid to split components into smaller components.</p>
-<p>For example, consider this Comment component:</p>
-<pre>
+            <h4>Extracting Components </h4>
+            <p>Don’t be afraid to split components into smaller components.</p>
+            <p>For example, consider this Comment component:</p>
+            <pre>
     <code>
             function Comment(props) {
                 return (
@@ -292,10 +313,12 @@
               }
 </code>
 </pre>
-<p>It accepts author (an object), text (a string), and date (a date) as props, and describes a comment on a social media website.</p>
-<p>This component can be tricky to change because of all the nesting, and it is also hard to reuse individual parts of it. Let’s extract a few components from it.</p>
-<p>First, we will extract Avatar:</p>
-<pre>
+            <p>It accepts author (an object), text (a string), and date (a date) as props, and describes a comment on a
+                social media website.</p>
+            <p>This component can be tricky to change because of all the nesting, and it is also hard to reuse
+                individual parts of it. Let’s extract a few components from it.</p>
+            <p>First, we will extract Avatar:</p>
+            <pre>
     <code>
             function Avatar(props) {
                 return (
@@ -307,9 +330,10 @@
               }
 </code>
 </pre>
-<p>The Avatar doesn’t need to know that it is being rendered inside a Comment. This is why we have given its prop a more generic name: user rather than author.</p>
-<p>We can now simplify Comment a tiny bit:</p>
-<pre>
+            <p>The Avatar doesn’t need to know that it is being rendered inside a Comment. This is why we have given
+                its prop a more generic name: user rather than author.</p>
+            <p>We can now simplify Comment a tiny bit:</p>
+            <pre>
     <code>
             function Comment(props) {
                 return (
@@ -331,8 +355,8 @@
               }
 </code>
 </pre>
-<p>Next, we will extract a UserInfo component that renders an Avatar next to the user’s name:</p>
-<pre>
+            <p>Next, we will extract a UserInfo component that renders an Avatar next to the user’s name:</p>
+            <pre>
     <code>
             function UserInfo(props) {
                 return (
@@ -346,8 +370,8 @@
               }
 </code>
 </pre>
-<p>This lets us simplify Comment even further:</p>
-<pre>
+            <p>This lets us simplify Comment even further:</p>
+            <pre>
     <code>
             function Comment(props) {
                 return (
@@ -364,29 +388,187 @@
               }
 </code>
 </pre>
-</section>
-        <section class="section-section">
+        </section>
+        <section class="main-section">
             <h3>State and Lifecycle</h3>
+            <p>This page introduces the concept of state and lifecycle in a React component. </p>
+            <p>Consider the ticking clock example from one of the previous sections. In Rendering Elements, we have
+                only learned one way to update the UI. We call ReactDOM.render() to change the rendered output:</p>
+            <pre>
+                <code>
+                        function tick() {
+                            const element = (
+                              <div>
+                                <h1>Hello, world!</h1>
+                                <h2>It is {new Date().toLocaleTimeString()}.</h2>
+                              </div>
+                            );
+                            ReactDOM.render(
+                              element,
+                              document.getElementById('root')
+                            );
+                          }
+                          
+                          setInterval(tick, 1000);
+            </code>
+        </pre>
+            <p>In this section, we will learn how to make the Clock component truly reusable and encapsulated. It will
+                set up its own timer and update itself every second.</p>
+            <p>We can start by encapsulating how the clock looks:</p>
+            <pre>
+            <code>
+                    function Clock(props) {
+                        return (
+                          <div>
+                            <h1>Hello, world!</h1>
+                            <h2>It is {props.date.toLocaleTimeString()}.</h2>
+                          </div>
+                        );
+                      }
+                      
+                      function tick() {
+                        ReactDOM.render(
+                          <Clock date={new Date()} />,
+                          document.getElementById('root')
+                        );
+                      }
+                      
+                      setInterval(tick, 1000);
+        </code>
+    </pre>
+            <p>However, it misses a crucial requirement: the fact that the Clock sets up a timer and updates the UI
+                every second should be an implementation detail of the Clock.</p>
+            <p>Ideally we want to write this once and have the Clock update itself:</p>
+            <pre>
+        <code>
+                ReactDOM.render(
+                    <Clock />,
+                    document.getElementById('root')
+                  );
+    </code>
+</pre>
         </section>
-        <section class="section-section">
+        <section class="main-section">
             <h3>Handling Events</h3>
+            <p>Handling events with React elements is very similar to handling events on DOM elements. There are some
+                syntactic differences:</p>
+            <ul>
+                <li>React events are named using camelCase, rather than lowercase.</li>
+                <li>With JSX you pass a function as the event handler, rather than a string.</li>
+            </ul>
+            <p>For example, the HTML:</p>
+            <pre>
+                <code>
+                        <button onclick="activateLasers()">
+                                Activate Lasers
+                              </button>
+            </code>
+        </pre>
+            <p>is slightly different in React:</p>
+            <pre>
+            <code>
+                    <button onClick={activateLasers}>
+                            Activate Lasers
+                          </button>
+        </code>
+    </pre>
+            <p>Another difference is that you cannot return false to prevent default behavior in React. You must call
+                preventDefault explicitly. For example, with plain HTML, to prevent the default link behavior of
+                opening a new page, you can write:</p>
+            <pre>
+        <code>
+                <a href="#" onclick="console.log('The link was clicked.'); return false">
+                        Click me
+                      </a>
+    </code>
+</pre>
+            <p>In React, this could instead be:</p>
+            <pre>
+    <code>
+            function ActionLink() {
+                function handleClick(e) {
+                  e.preventDefault();
+                  console.log('The link was clicked.');
+                }
+              
+                return (
+                  <a href="#" onClick={handleClick}>
+                    Click me
+                  </a>
+                );
+              }
+</code>
+</pre>
+            <p>Here, e is a synthetic event. React defines these synthetic events according to the W3C spec, so you
+                don’t need to worry about cross-browser compatibility. See the SyntheticEvent reference guide to learn
+                more.</p>
+            <p>When using React you should generally not need to call addEventListener to add listeners to a DOM
+                element after it is created. Instead, just provide a listener when the element is initially rendered.</p>
+            <p>When you define a component using an ES6 class, a common pattern is for an event handler to be a method
+                on the class. For example, this Toggle component renders a button that lets the user toggle between
+                “ON” and “OFF” states:</p>
+            <pre>
+    <code>
+            class Toggle extends React.Component {
+                constructor(props) {
+                  super(props);
+                  this.state = {isToggleOn: true};
+              
+                  // This binding is necessary to make `this` work in the callback
+                  this.handleClick = this.handleClick.bind(this);
+                }
+              
+                handleClick() {
+                  this.setState(state => ({
+                    isToggleOn: !state.isToggleOn
+                  }));
+                }
+              
+                render() {
+                  return (
+                    <button onClick={this.handleClick}>
+                      {this.state.isToggleOn ? 'ON' : 'OFF'}
+                    </button>
+                  );
+                }
+              }
+              
+              ReactDOM.render(
+                <Toggle />,
+                document.getElementById('root')
+              );
+</code>
+</pre>
+            <h4>Passing Arguments to Event Handlers </h4>
+            <p>Inside a loop it is common to want to pass an extra parameter to an event handler. For example, if id is
+                the row ID, either of the following would work:</p>
+            <pre>
+    <code>
+            <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
+            <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
+</code>
+</pre>
+            <p>The above two lines are equivalent, and use arrow functions and Function.prototype.bind respectively.</p>
+            <p>In both cases, the e argument representing the React event will be passed as a second argument after the
+                ID. With an arrow function, we have to pass it explicitly, but with bind any further arguments are
+                automatically forwarded.</p>
         </section>
-        <section class="section-section">
+        <section class="main-section">
             <h3>Conditional Rendering</h3>
         </section>
-        <section class="section-section">
+        <section class="main-section">
             <h3>Lists and keys</h3>
         </section>
-        <section class="section-section">
+        <section class="main-section">
             <h3>Forms</h3>
         </section>
-        <section class="section-section">
+        <section class="main-section">
             <h3>Composition and Inheritance</h3>
         </section>
-        <section class="section-section">
+        <section class="main-section">
             <h3></h3>
         </section>
-        <section class="section-section">
+        <section class="main-section">
             <h3>Thinking React</h3>
         </section>
     </main>
