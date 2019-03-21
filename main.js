@@ -1,0 +1,1 @@
+document.getElementById('navbar').style.width = '30em';
