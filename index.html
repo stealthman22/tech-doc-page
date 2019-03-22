@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,23 +6,26 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>React Docs</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </head>
 
 <body>
   <nav id="navbar">
     <h1>React Docs</h1>
     <a href="#">
-      <svg width="30" height="30">
-        <path d="M0,5 30,5" stroke="#fff" stroke-width="5" />
-        <path d="M0,14 30,14" stroke="#fff" stroke-width="5" />
-        <path d="M0,23 30,23" stroke="#fff" stroke-width="5" />
-      </svg>
+      <span class='cheese-bugger'>
+        <svg width="30" height="30">
+          <path d="M0,5 30,5" stroke="#fff" stroke-width="5" />
+          <path d="M0,14 30,14" stroke="#fff" stroke-width="5" />
+          <path d="M0,23 30,23" stroke="#fff" stroke-width="5" />
+        </svg>
+      </span>
       <span class="btn-close">
         <a href="#">&times;</a>
       </span>
     </a>
     <ul>
-      <a href="#Hello_World" class="nav-link">
+      <a href="#Hello_World" class="nav-link" onclick='myFunction()'>
         <li>Hello World</li>
       </a>
       <a href="#Introducing_JSX" class="nav-link">
@@ -44,6 +46,7 @@
       <a href="#Thinking_in_React" class="nav-link">
         <li>Thinking in React</li>
       </a>
+
     </ul>
   </nav>
   <main id="main-doc">
@@ -56,13 +59,13 @@
         In react it looks loike this:
       </p>
       <pre>
-                        <code>
-                          ReactDOM.render(
-                            &lt;h1&gt;Hello, world!&lt;/h1&gt;,
-                            document.getElementById('root')
-                          );
-                    </code>
-                </pre>
+                          <code>
+                            ReactDOM.render(
+                              &lt;h1&gt;Hello, world!&lt;/h1&gt;,
+                              document.getElementById('root')
+                            );
+                      </code>
+                  </pre>
       <p>This outputs a heading saying "Hello World"</p>
 
 
@@ -71,10 +74,10 @@
       <h3>Introducing JSX</h3>
       <p>Consider the variable declaration below:</p>
       <pre>
-                <code>
-                        const element =&lth1&gtHello, world!&lt/h1&gt;
-                </code>
-            </pre>
+                  <code>
+                          const element =&lth1&gtHello, world!&lt/h1&gt;
+                  </code>
+              </pre>
       <p>This is neither a string or HTML.</p>
       <p>
         It is called JSX, and it is a syntax extension to JavaScript. We recommend using it with React to
@@ -106,16 +109,16 @@
       <p>In the example below, we declare a variable called name and then use it inside JSX by wrapping it in
         curly braces:</p>
       <pre>
-                        <code>
-                          const name = 'Josh Perez';
-                          const element = &lt;h1&gt;Hello, {name}&lt;/h1&gt;;
-                          
-                          ReactDOM.render(
-                            element,
-                            document.getElementById('root')
-                          );
-                    </code>
-                </pre>
+                          <code>
+                            const name = 'Josh Perez';
+                            const element = &lt;h1&gt;Hello, {name}&lt;/h1&gt;;
+                            
+                            ReactDOM.render(
+                              element,
+                              document.getElementById('root')
+                            );
+                      </code>
+                  </pre>
       <ul>
         <li>
           <h4>JSX is an Expression Too</h4>
@@ -126,15 +129,15 @@
       <p>This means that you can use JSX inside of if statements and for loops, assign it to variables, accept it
         as arguments, and return it from functions:</p>
       <pre>
-                    <code>
-                      function getGreeting(user) {
-                        if (user) {
-                          return &lt;h1&gt;Hello, {formatName(user)}!&lt;/h1&gt;;
+                      <code>
+                        function getGreeting(user) {
+                          if (user) {
+                            return &lt;h1&gt;Hello, {formatName(user)}!&lt;/h1&gt;;
+                          }
+                          return &lt;h1&gt;Hello, Stranger.&lt;/h1&gt;;
                         }
-                        return &lt;h1&gt;Hello, Stranger.&lt;/h1&gt;;
-                      }
-                </code>
-            </pre>
+                  </code>
+              </pre>
       <ul>
         <li>
           <h4>Specifying Attributes with JSX</h4>
@@ -142,10 +145,10 @@
       </ul>
       <p>You may use quotes to specify string literals as attributes:</p>
       <pre>
-                    <code>
-                      const element = &lt;div tabIndex=&quot;0&quot;&gt;&lt;/div&gt;;
-                </code>
-            </pre>
+                      <code>
+                        const element = &lt;div tabIndex=&quot;0&quot;&gt;&lt;/div&gt;;
+                  </code>
+              </pre>
       <ul>
         <li>
           <h4>JSX Prevents Injection Attacks</h4>
@@ -153,12 +156,12 @@
       </ul>
       <p>It is safe to embed user input in JSX:</p>
       <pre>
-                <code>
-                  const title = response.potentiallyMaliciousInput;
-                  // This is safe:
-                  const element = &lt;h1&gt;{title}&lt;/h1&gt;;
-            </code>
-        </pre>
+                  <code>
+                    const title = response.potentiallyMaliciousInput;
+                    // This is safe:
+                    const element = &lt;h1&gt;{title}&lt;/h1&gt;;
+              </code>
+          </pre>
       <p>By default, React DOM escapes any values embedded in JSX before rendering them. Thus it ensures that you
         can never inject anything that’s not explicitly written in your application. Everything is converted to
         a string before being rendered. This helps prevent XSS (cross-site-scripting) attacks</p>
@@ -170,38 +173,38 @@
       <p>Babel compiles JSX down to React.createElement() calls.</p>
       <p>These two examples are identical:</p>
       <pre>
-                    <code>
-                      const element = (
-                        &lt;h1 className=&quot;greeting&quot;&gt;
-                          Hello, world!
-                        &lt;/h1&gt;
-                      );
-                </code>
-            </pre>
+                      <code>
+                        const element = (
+                          &lt;h1 className=&quot;greeting&quot;&gt;
+                            Hello, world!
+                          &lt;/h1&gt;
+                        );
+                  </code>
+              </pre>
 
       <pre>
-                <code>
-                  const element = React.createElement(
-                    'h1',
-                    {className: 'greeting'},
-                    'Hello, world!'
-                  );    
-            </code>
-        </pre>
+                  <code>
+                    const element = React.createElement(
+                      'h1',
+                      {className: 'greeting'},
+                      'Hello, world!'
+                    );    
+              </code>
+          </pre>
       <p>React.createElement() performs a few checks to help you write bug-free code but essentially it creates
         an object like this:</p>
       <pre>
-                <code>
-                    // Note: this structure is simplified
-                    const element = {
-                      type: 'h1',
-                      props: {
-                        className: 'greeting',
-                        children: 'Hello, world!'
-                      }
-                    };
-            </code>
-        </pre>
+                  <code>
+                      // Note: this structure is simplified
+                      const element = {
+                        type: 'h1',
+                        props: {
+                          className: 'greeting',
+                          children: 'Hello, world!'
+                        }
+                      };
+              </code>
+          </pre>
       <p>These objects are called “React elements”. You can think of them as descriptions of what you want to see
         on the screen. React reads these objects and uses them to construct the DOM and keep it up to date.
 
@@ -213,8 +216,8 @@
       <p>Elements are the smallest building blocks of React apps.</p>
       <p>An element describes what you want to see on the screen:</p>
       <pre>
-      <code>const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;</code>
-    </pre>
+        <code>const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;</code>
+      </pre>
       <p>Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes
         care of updating the DOM to match the React elements.
       </p>
@@ -225,10 +228,10 @@
       </ul>
       <p>Let’s say there is a &ltdiv&gt somewhere in your HTML file:</p>
       <pre>
-              <code>
-                &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
-            </code>
-          </pre>
+                <code>
+                  &lt;div id=&quot;root&quot;&gt;&lt;/div&gt;
+              </code>
+            </pre>
       <p>We call this a “root” DOM node because everything inside it will be managed by React DOM.</p>
       <p>Applications built with just React usually have a single root DOM node. If you are integrating React
         into an existing app, you may have as many isolated root DOM nodes as you like.
@@ -236,11 +239,11 @@
       <p>To render a React element into a root DOM node, pass both to</p>
       <p> ReactDOM.render():</p>
       <pre>
-                <code>
-                  const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;
-                  ReactDOM.render(element, document.getElementById('root'));
-            </code>
-        </pre>
+                  <code>
+                    const element = &lt;h1&gt;Hello, world&lt;/h1&gt;;
+                    ReactDOM.render(element, document.getElementById('root'));
+              </code>
+          </pre>
       <p>It displays “Hello, world” on the page.</p>
       <ul>
         <li>
@@ -253,20 +256,20 @@
         ReactDOM.render().</p>
       <p>Consider this ticking clock example:</p>
       <pre>
-            <code>
-              function tick() {
-                const element = (
-                  &lt;div&gt;
-                    &lt;h1&gt;Hello, world!&lt;/h1&gt;
-                    &lt;h2&gt;It is {new Date().toLocaleTimeString()}.&lt;/h2&gt;
-                  &lt;/div&gt;
-                );
-                ReactDOM.render(element, document.getElementById('root'));
-              }
-              
-              setInterval(tick, 1000);
-        </code>
-    </pre>
+              <code>
+                function tick() {
+                  const element = (
+                    &lt;div&gt;
+                      &lt;h1&gt;Hello, world!&lt;/h1&gt;
+                      &lt;h2&gt;It is {new Date().toLocaleTimeString()}.&lt;/h2&gt;
+                    &lt;/div&gt;
+                  );
+                  ReactDOM.render(element, document.getElementById('root'));
+                }
+                
+                setInterval(tick, 1000);
+          </code>
+      </pre>
       <p>It calls ReactDOM.render() every second from a setInterval() callback.</p>
       <ul>
         <li>
@@ -291,25 +294,25 @@
       </ul>
       <p>The simplest way to define a component is to write a JavaScript function:</p>
       <pre>
-                <code>
-                  function Welcome(props) {
-                    return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
-                  }
-            </code>
-        </pre>
+                  <code>
+                    function Welcome(props) {
+                      return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+                    }
+              </code>
+          </pre>
       <p>This function is a valid React component because it accepts a single “props” (which stands for
         properties) object argument with data and returns a React element. We call such components “function
         components” because they are literally JavaScript functions.</p>
       <p>You can also use an ES6 class to define a component:</p>
       <pre>
-            <code>
-              class Welcome extends React.Component {
-                render() {
-                  return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;;
+              <code>
+                class Welcome extends React.Component {
+                  render() {
+                    return &lt;h1&gt;Hello, {this.props.name}&lt;/h1&gt;;
+                  }
                 }
-              }
-        </code>
-    </pre>
+          </code>
+      </pre>
       <p>The above two components are equivalent from React’s point of view.</p>
       <p>Classes have some additional features that we will discuss in the next sections. Until then, we will use
         function components for their conciseness.</p>
@@ -320,28 +323,28 @@
       </ul>
       <p>Previously, we only encountered React elements that represent DOM tags:</p>
       <pre>
-      <code>const element =
-        &ltdiv /&gt;</code> </pre>
+        <code>const element =
+          &ltdiv /&gt;</code> </pre>
       <p>However, elements can also represent user-defined components</p>
       <pre>
-      <code>const element =
-        &ltWelcome name="Sara" /&gt;</code></pre>
+        <code>const element =
+          &ltWelcome name="Sara" /&gt;</code></pre>
       <p>When React sees an element representing a user-defined component, it passes JSX attributes to this
         component as a single object. We call this object “props”.</p>
       <p>For example, this code renders “Hello, Sara” on the page:</p>
       <pre>
-        <code>
-          function Welcome(props) {
-            return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
-          }
-          
-          const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;
-          ReactDOM.render(
-            element,
-            document.getElementById('root')
-          );
-    </code>
-</pre>
+          <code>
+            function Welcome(props) {
+              return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+            }
+            
+            const element = &lt;Welcome name=&quot;Sara&quot; /&gt;;
+            ReactDOM.render(
+              element,
+              document.getElementById('root')
+            );
+      </code>
+  </pre>
       <ul>
         <li>
           <h4>Composing Components</h4>
@@ -352,27 +355,27 @@
         commonly expressed as components.</p>
       <p>For example, we can create an App component that renders Welcome many times:</p>
       <pre>
-    <code>
-      function Welcome(props) {
-        return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
-      }
-      
-      function App() {
-        return (
-          &lt;div&gt;
-            &lt;Welcome name=&quot;Sara&quot; /&gt;
-            &lt;Welcome name=&quot;Cahal&quot; /&gt;
-            &lt;Welcome name=&quot;Edite&quot; /&gt;
-          &lt;/div&gt;
+      <code>
+        function Welcome(props) {
+          return &lt;h1&gt;Hello, {props.name}&lt;/h1&gt;;
+        }
+        
+        function App() {
+          return (
+            &lt;div&gt;
+              &lt;Welcome name=&quot;Sara&quot; /&gt;
+              &lt;Welcome name=&quot;Cahal&quot; /&gt;
+              &lt;Welcome name=&quot;Edite&quot; /&gt;
+            &lt;/div&gt;
+          );
+        }
+        
+        ReactDOM.render(
+          &lt;App /&gt;,
+          document.getElementById('root')
         );
-      }
-      
-      ReactDOM.render(
-        &lt;App /&gt;,
-        document.getElementById('root')
-      );
-</code>
-</pre>
+  </code>
+  </pre>
       <ul>
         <li>
           <h4>Extracting Components </h4>
@@ -381,102 +384,102 @@
       <p>Don’t be afraid to split components into smaller components.</p>
       <p>For example, consider this Comment component:</p>
       <pre>
-    <code>
-      function Comment(props) {
-        return (
-          &lt;div className=&quot;Comment&quot;&gt;
-            &lt;div className=&quot;UserInfo&quot;&gt;
-              &lt;img className=&quot;Avatar&quot;
-                src={props.author.avatarUrl}
-                alt={props.author.name}
-              /&gt;
-              &lt;div className=&quot;UserInfo-name&quot;&gt;
-                {props.author.name}
+      <code>
+        function Comment(props) {
+          return (
+            &lt;div className=&quot;Comment&quot;&gt;
+              &lt;div className=&quot;UserInfo&quot;&gt;
+                &lt;img className=&quot;Avatar&quot;
+                  src={props.author.avatarUrl}
+                  alt={props.author.name}
+                /&gt;
+                &lt;div className=&quot;UserInfo-name&quot;&gt;
+                  {props.author.name}
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div className=&quot;Comment-text&quot;&gt;
+                {props.text}
+              &lt;/div&gt;
+              &lt;div className=&quot;Comment-date&quot;&gt;
+                {formatDate(props.date)}
               &lt;/div&gt;
             &lt;/div&gt;
-            &lt;div className=&quot;Comment-text&quot;&gt;
-              {props.text}
-            &lt;/div&gt;
-            &lt;div className=&quot;Comment-date&quot;&gt;
-              {formatDate(props.date)}
-            &lt;/div&gt;
-          &lt;/div&gt;
-        );
-      }
-</code>
-</pre>
+          );
+        }
+  </code>
+  </pre>
       <p>It accepts author (an object), text (a string), and date (a date) as props, and describes a comment on a
         social media website.</p>
       <p>This component can be tricky to change because of all the nesting, and it is also hard to reuse
         individual parts of it. Let’s extract a few components from it.</p>
       <p>First, we will extract Avatar:</p>
       <pre>
-    <code>
-            function Avatar(props) {
-                return (
-                 
-                );
-              }
-</code>
-</pre>
+      <code>
+              function Avatar(props) {
+                  return (
+                   
+                  );
+                }
+  </code>
+  </pre>
       <p>The Avatar doesn’t need to know that it is being rendered inside a Comment. This is why we have given
         its prop a more generic name: user rather than author.</p>
       <p>We can now simplify Comment a tiny bit:</p>
       <pre>
-    <code>
-      function Comment(props) {
-        return (
-          &lt;div className=&quot;Comment&quot;&gt;
-            &lt;div className=&quot;UserInfo&quot;&gt;
-              &lt;Avatar user={props.author} /&gt;
-              &lt;div className=&quot;UserInfo-name&quot;&gt;
-                {props.author.name}
+      <code>
+        function Comment(props) {
+          return (
+            &lt;div className=&quot;Comment&quot;&gt;
+              &lt;div className=&quot;UserInfo&quot;&gt;
+                &lt;Avatar user={props.author} /&gt;
+                &lt;div className=&quot;UserInfo-name&quot;&gt;
+                  {props.author.name}
+                &lt;/div&gt;
+              &lt;/div&gt;
+              &lt;div className=&quot;Comment-text&quot;&gt;
+                {props.text}
+              &lt;/div&gt;
+              &lt;div className=&quot;Comment-date&quot;&gt;
+                {formatDate(props.date)}
               &lt;/div&gt;
             &lt;/div&gt;
-            &lt;div className=&quot;Comment-text&quot;&gt;
-              {props.text}
-            &lt;/div&gt;
-            &lt;div className=&quot;Comment-date&quot;&gt;
-              {formatDate(props.date)}
-            &lt;/div&gt;
-          &lt;/div&gt;
-        );
-      }
-</code>
-</pre>
+          );
+        }
+  </code>
+  </pre>
       <p>Next, we will extract a UserInfo component that renders an Avatar next to the user’s name:</p>
       <pre>
-    <code>
-      function UserInfo(props) {
-        return (
-          &lt;div className=&quot;UserInfo&quot;&gt;
-            &lt;Avatar user={props.user} /&gt;
-            &lt;div className=&quot;UserInfo-name&quot;&gt;
-              {props.user.name}
+      <code>
+        function UserInfo(props) {
+          return (
+            &lt;div className=&quot;UserInfo&quot;&gt;
+              &lt;Avatar user={props.user} /&gt;
+              &lt;div className=&quot;UserInfo-name&quot;&gt;
+                {props.user.name}
+              &lt;/div&gt;
             &lt;/div&gt;
-          &lt;/div&gt;
-        );
-      }
-</code>
-</pre>
+          );
+        }
+  </code>
+  </pre>
       <p>This lets us simplify Comment even further:</p>
       <pre>
-    <code>
-      function Comment(props) {
-        return (
-          &lt;div className=&quot;Comment&quot;&gt;
-            &lt;UserInfo user={props.author} /&gt;
-            &lt;div className=&quot;Comment-text&quot;&gt;
-              {props.text}
+      <code>
+        function Comment(props) {
+          return (
+            &lt;div className=&quot;Comment&quot;&gt;
+              &lt;UserInfo user={props.author} /&gt;
+              &lt;div className=&quot;Comment-text&quot;&gt;
+                {props.text}
+              &lt;/div&gt;
+              &lt;div className=&quot;Comment-date&quot;&gt;
+                {formatDate(props.date)}
+              &lt;/div&gt;
             &lt;/div&gt;
-            &lt;div className=&quot;Comment-date&quot;&gt;
-              {formatDate(props.date)}
-            &lt;/div&gt;
-          &lt;/div&gt;
-        );
-      }
-</code>
-</pre>
+          );
+        }
+  </code>
+  </pre>
     </section>
     <section class="main-section" id="State_and_Lifecycle">
       <h3>State and Lifecycle</h3>
@@ -484,58 +487,58 @@
       <p>Consider the ticking clock example from one of the previous sections. In Rendering Elements, we have
         only learned one way to update the UI. We call ReactDOM.render() to change the rendered output:</p>
       <pre>
-                <code>
-                  function tick() {
-                    const element = (
-                      &lt;div&gt;
-                        &lt;h1&gt;Hello, world!&lt;/h1&gt;
-                        &lt;h2&gt;It is {new Date().toLocaleTimeString()}.&lt;/h2&gt;
-                      &lt;/div&gt;
-                    );
-                    ReactDOM.render(
-                      element,
-                      document.getElementById('root')
-                    );
-                  }
-                  
-                  setInterval(tick, 1000);
-            </code>
-        </pre>
+                  <code>
+                    function tick() {
+                      const element = (
+                        &lt;div&gt;
+                          &lt;h1&gt;Hello, world!&lt;/h1&gt;
+                          &lt;h2&gt;It is {new Date().toLocaleTimeString()}.&lt;/h2&gt;
+                        &lt;/div&gt;
+                      );
+                      ReactDOM.render(
+                        element,
+                        document.getElementById('root')
+                      );
+                    }
+                    
+                    setInterval(tick, 1000);
+              </code>
+          </pre>
       <p>In this section, we will learn how to make the Clock component truly reusable and encapsulated. It will
         set up its own timer and update itself every second.</p>
       <p>We can start by encapsulating how the clock looks:</p>
       <pre>
-            <code>
-              function Clock(props) {
-                return (
-                  &lt;div&gt;
-                    &lt;h1&gt;Hello, world!&lt;/h1&gt;
-                    &lt;h2&gt;It is {props.date.toLocaleTimeString()}.&lt;/h2&gt;
-                  &lt;/div&gt;
-                );
-              }
-              
-              function tick() {
-                ReactDOM.render(
-                  &lt;Clock date={new Date()} /&gt;,
-                  document.getElementById('root')
-                );
-              }
-              
-              setInterval(tick, 1000);  
-        </code>
-    </pre>
+              <code>
+                function Clock(props) {
+                  return (
+                    &lt;div&gt;
+                      &lt;h1&gt;Hello, world!&lt;/h1&gt;
+                      &lt;h2&gt;It is {props.date.toLocaleTimeString()}.&lt;/h2&gt;
+                    &lt;/div&gt;
+                  );
+                }
+                
+                function tick() {
+                  ReactDOM.render(
+                    &lt;Clock date={new Date()} /&gt;,
+                    document.getElementById('root')
+                  );
+                }
+                
+                setInterval(tick, 1000);  
+          </code>
+      </pre>
       <p>However, it misses a crucial requirement: the fact that the Clock sets up a timer and updates the UI
         every second should be an implementation detail of the Clock.</p>
       <p>Ideally we want to write this once and have the Clock update itself:</p>
       <pre>
-        <code>
-                ReactDOM.render(
-                    &ltClock /&gt,
-                    document.getElementById('root')
-                  );
-    </code>
-</pre>
+          <code>
+                  ReactDOM.render(
+                      &ltClock /&gt,
+                      document.getElementById('root')
+                    );
+      </code>
+  </pre>
     </section>
     <section class="main-section" id="Handling_Events">
       <h3>Handling Events</h3>
@@ -547,47 +550,47 @@
       </ul>
       <p>For example, the HTML:</p>
       <pre>
-                <code>
-                  &lt;button onclick=&quot;activateLasers()&quot;&gt;
-                  Activate Lasers
-                &lt;/button&gt;  
-            </code>
-        </pre>
+                  <code>
+                    &lt;button onclick=&quot;activateLasers()&quot;&gt;
+                    Activate Lasers
+                  &lt;/button&gt;  
+              </code>
+          </pre>
       <p>is slightly different in React:</p>
       <pre>
-            <code>
-              &lt;button onClick={activateLasers}&gt;
-              Activate Lasers
-            &lt;/button&gt;
-        </code>
-    </pre>
+              <code>
+                &lt;button onClick={activateLasers}&gt;
+                Activate Lasers
+              &lt;/button&gt;
+          </code>
+      </pre>
       <p>Another difference is that you cannot return false to prevent default behavior in React. You must call
         preventDefault explicitly. For example, with plain HTML, to prevent the default link behavior of
         opening a new page, you can write:</p>
       <pre>
-        <code>
-          &lt;a href=&quot;#&quot; onclick=&quot;console.log('The link was clicked.'); return false&quot;&gt;
-          Click me
-        &lt;/a&gt;
-    </code>
-</pre>
-      <p>In React, this could instead be:</p>
-      <pre>
-    <code>
-      function ActionLink() {
-        function handleClick(e) {
-          e.preventDefault();
-          console.log('The link was clicked.');
-        }
-      
-        return (
-          &lt;a href=&quot;#&quot; onClick={handleClick}&gt;
+          <code>
+            &lt;a href=&quot;#&quot; onclick=&quot;console.log('The link was clicked.'); return false&quot;&gt;
             Click me
           &lt;/a&gt;
-        );
-      }
-</code>
-</pre>
+      </code>
+  </pre>
+      <p>In React, this could instead be:</p>
+      <pre>
+      <code>
+        function ActionLink() {
+          function handleClick(e) {
+            e.preventDefault();
+            console.log('The link was clicked.');
+          }
+        
+          return (
+            &lt;a href=&quot;#&quot; onClick={handleClick}&gt;
+              Click me
+            &lt;/a&gt;
+          );
+        }
+  </code>
+  </pre>
       <p>Here, e is a synthetic event. React defines these synthetic events according to the W3C spec, so you
         don’t need to worry about cross-browser compatibility. See the SyntheticEvent reference guide to learn
         more.</p>
@@ -597,37 +600,37 @@
         on the class. For example, this Toggle component renders a button that lets the user toggle between
         “ON” and “OFF” states:</p>
       <pre>
-    <code>
-      class Toggle extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = {isToggleOn: true};
-      
-          // This binding is necessary to make `this` work in the callback
-          this.handleClick = this.handleClick.bind(this);
+      <code>
+        class Toggle extends React.Component {
+          constructor(props) {
+            super(props);
+            this.state = {isToggleOn: true};
+        
+            // This binding is necessary to make `this` work in the callback
+            this.handleClick = this.handleClick.bind(this);
+          }
+        
+          handleClick() {
+            this.setState(state =&gt; ({
+              isToggleOn: !state.isToggleOn
+            }));
+          }
+        
+          render() {
+            return (
+              &lt;button onClick={this.handleClick}&gt;
+                {this.state.isToggleOn ? 'ON' : 'OFF'}
+              &lt;/button&gt;
+            );
+          }
         }
-      
-        handleClick() {
-          this.setState(state =&gt; ({
-            isToggleOn: !state.isToggleOn
-          }));
-        }
-      
-        render() {
-          return (
-            &lt;button onClick={this.handleClick}&gt;
-              {this.state.isToggleOn ? 'ON' : 'OFF'}
-            &lt;/button&gt;
-          );
-        }
-      }
-      
-      ReactDOM.render(
-        &lt;Toggle /&gt;,
-        document.getElementById('root')
-      );
-</code>
-</pre>
+        
+        ReactDOM.render(
+          &lt;Toggle /&gt;,
+          document.getElementById('root')
+        );
+  </code>
+  </pre>
       <ul>
         <li>
           <h4>Passing Arguments to Event Handlers </h4>
@@ -636,11 +639,11 @@
       <p>Inside a loop it is common to want to pass an extra parameter to an event handler. For example, if id is
         the row ID, either of the following would work:</p>
       <pre>
-    <code>
-      &lt;button onClick={(e) =&gt; this.deleteRow(id, e)}&gt;Delete Row&lt;/button&gt;
-      &lt;button onClick={this.deleteRow.bind(this, id)}&gt;Delete Row&lt;/button&gt;
-</code>
-</pre>
+      <code>
+        &lt;button onClick={(e) =&gt; this.deleteRow(id, e)}&gt;Delete Row&lt;/button&gt;
+        &lt;button onClick={this.deleteRow.bind(this, id)}&gt;Delete Row&lt;/button&gt;
+  </code>
+  </pre>
       <p>The above two lines are equivalent, and use arrow functions and Function.prototype.bind respectively.</p>
       <p>In both cases, the e argument representing the React event will be passed as a second argument after the
         ID. With an arrow function, we have to pass it explicitly, but with bind any further arguments are
@@ -661,14 +664,13 @@
         it’s extremely easy to read this modular, explicit code. As you start to build large libraries of components,
         you’ll appreciate this explicitness and modularity, and with code reuse, your lines of code will start to
         shrink.</p>
+      <p>
+        Connect with <a href="https://reactjs.org/">React.js</a> to learn much more and start using react today</p>
     </section>
 
   </main>
 
-  <footer class="footer">
-    Connect with <a href="https://reactjs.org/">React.js</a> to learn much more and start using react today
-  </footer>
+
 </body>
-<script src="index.js"></script>
 
 </html>
