@@ -4,75 +4,66 @@
     --bg-sec: rgb(179, 229, 252);
     --bg-bor: rgb(189, 189, 189);
     --bg-text: rgb(255, 255, 255);
-    --text-pry: rgb(33, 33, 33);
+    --text-pry: rgb(17, 17, 17);
     --text-sec: rgb(117, 117, 117);
     --bg-hl: rgb(68, 138, 255);
 }
 
+html,
 body {
-    overflow-x: hidden;
-    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: var(--text-pry);
+    font-family: Arial, Helvetica, sans-serif
 }
 
-h1,
-h2,
-h3 {
-    text-align: center;
-}
-
-ul {
-    list-style-type: none;
-}
-
-
-
+/* Fof creating side navs*/
 #navbar {
-    height: 100vh;
-    width: 0;
+    background-color: var(--nav-bg-clr);
+    color: #fff;
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: var(--nav-bg-clr);
-    max-width: 230px;
+    height: 100%;
+    width: 200px;
+    opacity: 0.9;
 }
 
+#navbar ul {
+    padding: 20px 10px;
+}
 
 #navbar a {
     text-decoration: none;
-    color: white;
-    padding: 50px 10px;
-    font-size: 1.25em;
+    list-style-type: none;
+    color: #fff;
+    padding: 4em;
+    font-size: 20px
 }
-
-
 
 #main-doc {
-    margin-left: 230px;
-    color: rgb(18, 18, 18);
+    margin-left: 210px;
+}
+
+.header {
+    text-align: center;
+    font-style: oblique;
+    font-size: 2rem
 }
 
 
-
-
-
-
-
-
-
-
-
-
-.footer {
-    margin-left: 230px
+.main-section {
+    padding: 10px;
 }
 
+.main-section ul {
+    list-style-type: none;
+}
 
-
-
-
-
-
+.main-section h3 {
+    font-size: 18px;
+    font-style: oblique;
+}
 
 
 
@@ -80,9 +71,20 @@ ul {
 
 pre {
 
-    border: 1px solid darkgrey;
-    background-color: aliceblue;
-    /*var(--bg-sec);*/
-    height: auto;
+    border: 1px solid var(--bg-bor);
+
+    /*this formats <pre>*/
     white-space: pre-wrap;
+    /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;
+    /* Mozilla, since 1999 */
+    white-space: -pre-wrap;
+    /* Opera 4-6 */
+    white-space: -o-pre-wrap;
+    /* Opera 7 */
+    word-wrap: break-word;
+    /* Internet Explorer 5.5+ */
+
+
+    background-color: aliceblue;
 }
